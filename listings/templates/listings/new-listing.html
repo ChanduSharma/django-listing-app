@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New</title>
+</head>
+
+<body>
+    <h1>NEW LISTING</h1>
+
+    <form action="{% url 'listings:new_listing' %}" method='post' enctype="multipart/form-data">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn">Create Listing</button>
+    </form>
+</body>
+
+</html>

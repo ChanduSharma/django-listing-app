@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listings</title>
+</head>
+
+<body>
+    <h1>Listings</h1>
+    <div class="listing">
+        <div class="card">
+            {% for listing in all_listings %}
+            <p><b>Title:</b> {{ listing.title }}</p>
+            <p><b>Condition:</b> {{ listing.condition }}</p>
+            <p><b>Sale Type:</b> {{ listing.sale_type }}</p>
+            <p><b>Price:</b> &#8377; {{ listing.price|floatformat:2 }}</p>
+            <p><b>Location:</b> {{ listing.city }}, {{ listing.state }}</p>
+            <p><b>Post Date:</b> {{ listing.list_date }}</p>
+            <ul>
+                <a class="btn" href="">View Listing</a>
+            </ul>
+            <hr />
+            {% empty %}
+            <h3>No listings found. Try again.</h3>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
